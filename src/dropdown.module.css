@@ -1,0 +1,71 @@
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.ddButton {
+    display: inline-block;
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 10px 30px 10px 20px;
+    background-color: #ffffff;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.ddButton:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%) rotate(-180deg);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+    transition: transform 0.4s;
+}
+
+.ddButton.show:after {
+    transform: translateY(-50%);
+}
+
+.ddButton:hover {
+    background-color: #eeeeee;
+}
+
+.ddMenu {
+    position: absolute;
+    top: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0;
+    margin: 2px 0 0 0;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    list-style-type: none;
+}
+
+.ddMenu li {
+    padding: 10px 20px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.ddMenu li:hover,
+li.selected {
+    background-color: #0752db;
+    color: white;
+}
+
+.ddMenu li a {
+    display: block;
+    margin: -10px -20px;
+    padding: 10px 20px;
+}
+
+.ddMenu li.divider {
+    padding: 0;
+    border-bottom: 1px solid #cccccc;
+}
