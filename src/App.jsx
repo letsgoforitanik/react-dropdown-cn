@@ -4,16 +4,21 @@ import "./index.css";
 
 export default function App() {
     const fruits = ["Apple", "Strawberries", "Mango", "Banana", "Lemon", "Watermelon", "Papaya", "Avocado"];
-    const [selectedItem, setSelectedItem] = useState(null);
+    const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
 
-    function handleDropdownItemSelect(index, value) {
-        setSelectedItem(fruits[index]);
+    function handleDropdownItemSelect(selectedItemIndex) {
+        setSelectedItemIndex(selectedItemIndex);
+    }
+
+    function isValidIndex() {
+        const condition = !isNaN(selectedItemIndex) && selectedItemIndex >= 0 && selectedItemIndex < fruits.length;
+        return condition;
     }
 
     return (
         <div className="App">
-            <Dropdown items={fruits} onItemSelected={handleDropdownItemSelect} />
-            {selectedItem && <h3>Selected Item is : {selectedItem}</h3>}
+            <Dropdown items={fruits} onItemSelected={handleDropdownItemSelect} selectedItemIndex={selectedItemIndex} />
+            {isValidIndex() && <h3>Selected Item is : {fruits[selectedItemIndex]}</h3>}
         </div>
     );
 }
