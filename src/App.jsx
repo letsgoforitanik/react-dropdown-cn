@@ -6,7 +6,7 @@ export default function App() {
     const fruits = ["Apple", "Strawberries", "Mango", "Banana", "Lemon", "Watermelon", "Papaya", "Avocado"];
     const [selectedItem, setSelectedItem] = useState(null);
 
-    function handleDropdownItemSelect(index) {
+    function handleDropdownItemSelect(index, value) {
         setSelectedItem(fruits[index]);
     }
 
